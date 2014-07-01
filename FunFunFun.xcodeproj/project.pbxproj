@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40C7623C80AE436FA92A4CD0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF92D242F594987B15CB9FA /* libPods.a */; };
 		D71B43B51962D0F000FFFF3A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71B43B41962D0F000FFFF3A /* Foundation.framework */; };
 		D71B43B71962D0F000FFFF3A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71B43B61962D0F000FFFF3A /* CoreGraphics.framework */; };
 		D71B43B91962D0F000FFFF3A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71B43B81962D0F000FFFF3A /* UIKit.framework */; };
@@ -22,6 +23,12 @@
 		D71B43D91962D0F000FFFF3A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71B43B81962D0F000FFFF3A /* UIKit.framework */; };
 		D71B43E11962D0F000FFFF3A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D71B43DF1962D0F000FFFF3A /* InfoPlist.strings */; };
 		D71B43E31962D0F000FFFF3A /* FunFunFunTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B43E21962D0F000FFFF3A /* FunFunFunTests.m */; };
+		D71B43EF1962DEA700FFFF3A /* LKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B43EE1962DEA700FFFF3A /* LKClient.m */; };
+		D753318E1962FE3F0081F7FE /* LKClient+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = D753318D1962FE3F0081F7FE /* LKClient+Query.m */; };
+		D75331911962FE590081F7FE /* LKClient+Requests.m in Sources */ = {isa = PBXBuildFile; fileRef = D75331901962FE590081F7FE /* LKClient+Requests.m */; };
+		D75331931962FFD40081F7FE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75331921962FFD40081F7FE /* Accounts.framework */; };
+		D75331951962FFE00081F7FE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75331941962FFE00081F7FE /* Social.framework */; };
+		D7533199196304DA0081F7FE /* GIJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7533198196304DA0081F7FE /* GIJSONResponseSerializer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CF92D242F594987B15CB9FA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36D0C04FB7749C2A17247CC /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D71B43B11962D0F000FFFF3A /* FunFunFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunFunFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71B43B41962D0F000FFFF3A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D71B43B61962D0F000FFFF3A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,6 +64,16 @@
 		D71B43DE1962D0F000FFFF3A /* FunFunFunTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FunFunFunTests-Info.plist"; sourceTree = "<group>"; };
 		D71B43E01962D0F000FFFF3A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D71B43E21962D0F000FFFF3A /* FunFunFunTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunFunFunTests.m; sourceTree = "<group>"; };
+		D71B43ED1962DEA700FFFF3A /* LKClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKClient.h; sourceTree = "<group>"; };
+		D71B43EE1962DEA700FFFF3A /* LKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKClient.m; sourceTree = "<group>"; };
+		D753318C1962FE3F0081F7FE /* LKClient+Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LKClient+Query.h"; sourceTree = "<group>"; };
+		D753318D1962FE3F0081F7FE /* LKClient+Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LKClient+Query.m"; sourceTree = "<group>"; };
+		D753318F1962FE590081F7FE /* LKClient+Requests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LKClient+Requests.h"; sourceTree = "<group>"; };
+		D75331901962FE590081F7FE /* LKClient+Requests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LKClient+Requests.m"; sourceTree = "<group>"; };
+		D75331921962FFD40081F7FE /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		D75331941962FFE00081F7FE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D7533197196304DA0081F7FE /* GIJSONResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIJSONResponseSerializer.h; sourceTree = "<group>"; };
+		D7533198196304DA0081F7FE /* GIJSONResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIJSONResponseSerializer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +81,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D75331951962FFE00081F7FE /* Social.framework in Frameworks */,
+				D75331931962FFD40081F7FE /* Accounts.framework in Frameworks */,
 				D71B43B71962D0F000FFFF3A /* CoreGraphics.framework in Frameworks */,
 				D71B43B91962D0F000FFFF3A /* UIKit.framework in Frameworks */,
 				D71B43B51962D0F000FFFF3A /* Foundation.framework in Frameworks */,
+				40C7623C80AE436FA92A4CD0 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +110,7 @@
 				D71B43DC1962D0F000FFFF3A /* FunFunFunTests */,
 				D71B43B31962D0F000FFFF3A /* Frameworks */,
 				D71B43B21962D0F000FFFF3A /* Products */,
+				A36D0C04FB7749C2A17247CC /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,10 +126,13 @@
 		D71B43B31962D0F000FFFF3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D75331941962FFE00081F7FE /* Social.framework */,
+				D75331921962FFD40081F7FE /* Accounts.framework */,
 				D71B43B41962D0F000FFFF3A /* Foundation.framework */,
 				D71B43B61962D0F000FFFF3A /* CoreGraphics.framework */,
 				D71B43B81962D0F000FFFF3A /* UIKit.framework */,
 				D71B43D61962D0F000FFFF3A /* XCTest.framework */,
+				0CF92D242F594987B15CB9FA /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,6 +146,7 @@
 				D71B43C91962D0F000FFFF3A /* Main_iPad.storyboard */,
 				D71B43CC1962D0F000FFFF3A /* LKViewController.h */,
 				D71B43CD1962D0F000FFFF3A /* LKViewController.m */,
+				D71B43EC1962DE2600FFFF3A /* QueriesManagement */,
 				D71B43CF1962D0F000FFFF3A /* Images.xcassets */,
 				D71B43BB1962D0F000FFFF3A /* Supporting Files */,
 			);
@@ -155,6 +182,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D71B43EC1962DE2600FFFF3A /* QueriesManagement */ = {
+			isa = PBXGroup;
+			children = (
+				D71B43ED1962DEA700FFFF3A /* LKClient.h */,
+				D71B43EE1962DEA700FFFF3A /* LKClient.m */,
+				D753318C1962FE3F0081F7FE /* LKClient+Query.h */,
+				D753318D1962FE3F0081F7FE /* LKClient+Query.m */,
+				D753318F1962FE590081F7FE /* LKClient+Requests.h */,
+				D75331901962FE590081F7FE /* LKClient+Requests.m */,
+				D7533196196304340081F7FE /* Serializers */,
+			);
+			name = QueriesManagement;
+			sourceTree = "<group>";
+		};
+		D7533196196304340081F7FE /* Serializers */ = {
+			isa = PBXGroup;
+			children = (
+				D7533197196304DA0081F7FE /* GIJSONResponseSerializer.h */,
+				D7533198196304DA0081F7FE /* GIJSONResponseSerializer.m */,
+			);
+			name = Serializers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D71B43E61962D0F100FFFF3A /* Build configuration list for PBXNativeTarget "FunFunFun" */;
 			buildPhases = (
+				95DF0CC2FD134C7683AEF395 /* Check Pods Manifest.lock */,
 				D71B43AD1962D0F000FFFF3A /* Sources */,
 				D71B43AE1962D0F000FFFF3A /* Frameworks */,
 				D71B43AF1962D0F000FFFF3A /* Resources */,
+				C42EB06F2CCD414F8139941A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,14 +301,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		95DF0CC2FD134C7683AEF395 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C42EB06F2CCD414F8139941A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D71B43AD1962D0F000FFFF3A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7533199196304DA0081F7FE /* GIJSONResponseSerializer.m in Sources */,
 				D71B43C11962D0F000FFFF3A /* main.m in Sources */,
 				D71B43C51962D0F000FFFF3A /* LKAppDelegate.m in Sources */,
+				D753318E1962FE3F0081F7FE /* LKClient+Query.m in Sources */,
+				D75331911962FE590081F7FE /* LKClient+Requests.m in Sources */,
 				D71B43CE1962D0F000FFFF3A /* LKViewController.m in Sources */,
+				D71B43EF1962DEA700FFFF3A /* LKClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +477,7 @@
 		};
 		D71B43E71962D0F100FFFF3A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A36D0C04FB7749C2A17247CC /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -401,6 +491,7 @@
 		};
 		D71B43E81962D0F100FFFF3A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A36D0C04FB7749C2A17247CC /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -471,6 +562,7 @@
 				D71B43E81962D0F100FFFF3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D71B43E91962D0F100FFFF3A /* Build configuration list for PBXNativeTarget "FunFunFunTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +571,7 @@
 				D71B43EB1962D0F100FFFF3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
