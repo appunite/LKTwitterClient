@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LKOAuthToken.h"
 
-@interface LKViewController : UIViewController
+@interface LKViewController : UIViewController <UITextFieldDelegate>
 
+
+@property (nonatomic, strong) IBOutlet UITextField *userNameTextField;
+@property (nonatomic, strong) IBOutlet UITextField *userPasswordTextField;
+@property (nonatomic, strong) LKOAuthToken *tokenGetter;
+@property (nonatomic, strong) NSArray * tokenAndSecret;
 
 @end

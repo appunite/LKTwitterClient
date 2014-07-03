@@ -29,6 +29,12 @@
 		D75331931962FFD40081F7FE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75331921962FFD40081F7FE /* Accounts.framework */; };
 		D75331951962FFE00081F7FE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75331941962FFE00081F7FE /* Social.framework */; };
 		D7533199196304DA0081F7FE /* GIJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7533198196304DA0081F7FE /* GIJSONResponseSerializer.m */; };
+		D7815C4E1965B78700DAB15A /* LKTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = D7815C4D1965B78700DAB15A /* LKTweet.m */; };
+		D7815C511965B82E00DAB15A /* LKTwitterAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = D7815C501965B82E00DAB15A /* LKTwitterAuthor.m */; };
+		D7815C541965BC9000DAB15A /* LKTweetCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7815C531965BC9000DAB15A /* LKTweetCellTableViewCell.m */; };
+		D793D2A419656306008C4F2A /* LKOAuthToken.m in Sources */ = {isa = PBXBuildFile; fileRef = D793D2A319656306008C4F2A /* LKOAuthToken.m */; };
+		D7AAA98A196593A500B0BAF6 /* LKFriendsIDsSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AAA989196593A500B0BAF6 /* LKFriendsIDsSerializer.m */; };
+		D7F1A9C31965B55600069663 /* LKTweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F1A9C21965B55600069663 /* LKTweetsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +80,18 @@
 		D75331941962FFE00081F7FE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D7533197196304DA0081F7FE /* GIJSONResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIJSONResponseSerializer.h; sourceTree = "<group>"; };
 		D7533198196304DA0081F7FE /* GIJSONResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIJSONResponseSerializer.m; sourceTree = "<group>"; };
+		D7815C4C1965B78700DAB15A /* LKTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTweet.h; sourceTree = "<group>"; };
+		D7815C4D1965B78700DAB15A /* LKTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTweet.m; sourceTree = "<group>"; };
+		D7815C4F1965B82E00DAB15A /* LKTwitterAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTwitterAuthor.h; sourceTree = "<group>"; };
+		D7815C501965B82E00DAB15A /* LKTwitterAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTwitterAuthor.m; sourceTree = "<group>"; };
+		D7815C521965BC9000DAB15A /* LKTweetCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTweetCellTableViewCell.h; sourceTree = "<group>"; };
+		D7815C531965BC9000DAB15A /* LKTweetCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTweetCellTableViewCell.m; sourceTree = "<group>"; };
+		D793D2A219656306008C4F2A /* LKOAuthToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKOAuthToken.h; sourceTree = "<group>"; };
+		D793D2A319656306008C4F2A /* LKOAuthToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKOAuthToken.m; sourceTree = "<group>"; };
+		D7AAA988196593A500B0BAF6 /* LKFriendsIDsSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKFriendsIDsSerializer.h; sourceTree = "<group>"; };
+		D7AAA989196593A500B0BAF6 /* LKFriendsIDsSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKFriendsIDsSerializer.m; sourceTree = "<group>"; };
+		D7F1A9C11965B55600069663 /* LKTweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTweetsViewController.h; sourceTree = "<group>"; };
+		D7F1A9C21965B55600069663 /* LKTweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTweetsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,9 +162,11 @@
 				D71B43C41962D0F000FFFF3A /* LKAppDelegate.m */,
 				D71B43C61962D0F000FFFF3A /* Main_iPhone.storyboard */,
 				D71B43C91962D0F000FFFF3A /* Main_iPad.storyboard */,
-				D71B43CC1962D0F000FFFF3A /* LKViewController.h */,
-				D71B43CD1962D0F000FFFF3A /* LKViewController.m */,
+				D7815C551965BC9A00DAB15A /* Views */,
+				D7F1A9BD1965B3F800069663 /* ViewControllers */,
 				D71B43EC1962DE2600FFFF3A /* QueriesManagement */,
+				D793D2A1196562C7008C4F2A /* TokenManagement */,
+				D7815C4B1965B6C200DAB15A /* Twitter Data Classes */,
 				D71B43CF1962D0F000FFFF3A /* Images.xcassets */,
 				D71B43BB1962D0F000FFFF3A /* Supporting Files */,
 			);
@@ -201,8 +221,50 @@
 			children = (
 				D7533197196304DA0081F7FE /* GIJSONResponseSerializer.h */,
 				D7533198196304DA0081F7FE /* GIJSONResponseSerializer.m */,
+				D7AAA988196593A500B0BAF6 /* LKFriendsIDsSerializer.h */,
+				D7AAA989196593A500B0BAF6 /* LKFriendsIDsSerializer.m */,
 			);
 			name = Serializers;
+			sourceTree = "<group>";
+		};
+		D7815C4B1965B6C200DAB15A /* Twitter Data Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D7815C4C1965B78700DAB15A /* LKTweet.h */,
+				D7815C4D1965B78700DAB15A /* LKTweet.m */,
+				D7815C4F1965B82E00DAB15A /* LKTwitterAuthor.h */,
+				D7815C501965B82E00DAB15A /* LKTwitterAuthor.m */,
+			);
+			name = "Twitter Data Classes";
+			sourceTree = "<group>";
+		};
+		D7815C551965BC9A00DAB15A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D7815C521965BC9000DAB15A /* LKTweetCellTableViewCell.h */,
+				D7815C531965BC9000DAB15A /* LKTweetCellTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D793D2A1196562C7008C4F2A /* TokenManagement */ = {
+			isa = PBXGroup;
+			children = (
+				D793D2A219656306008C4F2A /* LKOAuthToken.h */,
+				D793D2A319656306008C4F2A /* LKOAuthToken.m */,
+			);
+			name = TokenManagement;
+			sourceTree = "<group>";
+		};
+		D7F1A9BD1965B3F800069663 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D71B43CC1962D0F000FFFF3A /* LKViewController.h */,
+				D71B43CD1962D0F000FFFF3A /* LKViewController.m */,
+				D7F1A9C11965B55600069663 /* LKTweetsViewController.h */,
+				D7F1A9C21965B55600069663 /* LKTweetsViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,10 +402,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7533199196304DA0081F7FE /* GIJSONResponseSerializer.m in Sources */,
+				D7815C4E1965B78700DAB15A /* LKTweet.m in Sources */,
 				D71B43C11962D0F000FFFF3A /* main.m in Sources */,
+				D793D2A419656306008C4F2A /* LKOAuthToken.m in Sources */,
 				D71B43C51962D0F000FFFF3A /* LKAppDelegate.m in Sources */,
+				D7815C511965B82E00DAB15A /* LKTwitterAuthor.m in Sources */,
 				D753318E1962FE3F0081F7FE /* LKClient+Query.m in Sources */,
+				D7F1A9C31965B55600069663 /* LKTweetsViewController.m in Sources */,
 				D75331911962FE590081F7FE /* LKClient+Requests.m in Sources */,
+				D7815C541965BC9000DAB15A /* LKTweetCellTableViewCell.m in Sources */,
+				D7AAA98A196593A500B0BAF6 /* LKFriendsIDsSerializer.m in Sources */,
 				D71B43CE1962D0F000FFFF3A /* LKViewController.m in Sources */,
 				D71B43EF1962DEA700FFFF3A /* LKClient.m in Sources */,
 			);

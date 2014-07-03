@@ -34,7 +34,7 @@
         return nil;
     }
     
-    if (response.statusCode == 403) {
+    /*if (response.statusCode == 403) {
         NSDictionary *userInfo = @{NSLocalizedDescriptionKey: json[@"description"], GIAPIErrroTitleKey: json[@"title"] };
         *error = [NSError errorWithDomain:GIAPIErrorDomain code:response.statusCode userInfo:userInfo];
         
@@ -52,7 +52,7 @@
         *error = [NSError errorWithDomain:GIAPIErrorDomain code:response.statusCode userInfo:userInfo];
         
         return nil;
-    }
+    }*/
 
     return json;
 }

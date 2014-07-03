@@ -10,4 +10,6 @@
 
 @interface LKClient (Requests)
 
+-(NSMutableURLRequest *) requestFollowedUsersListWithParameters: (NSDictionary*) params;
+
 @end

@@ -10,6 +10,6 @@
 
 @interface LKClient (Query)
 
-+(void)
++(void)fetchFollowedUsersIDsWithParameters: (NSDictionary *) params;
 
 @end

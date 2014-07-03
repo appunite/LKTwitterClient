@@ -8,12 +8,20 @@
 
 #import "AFHTTPRequestOperationManager.h"
 #import "AUAccount.h"
+#import "AFgzipRequestSerializer.h"
+#import "TTTURLRequestFormatter.h"
+#import <sys/utsname.h>
 
 @interface LKClient : AFHTTPRequestOperationManager
 
 +(instancetype)operationManager;
 
 +(void)enqueueOperation:(NSOperation *)operation;
+
++ (void)enqueueRequest:(NSURLRequest *)request
+    responseSerializer:(AFHTTPResponseSerializer <AFURLResponseSerialization> *)responseSerializer
+               success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 
 @end

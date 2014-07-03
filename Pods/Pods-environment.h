@@ -48,15 +48,87 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 3
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
+// AFgzipRequestSerializer
+#define COCOAPODS_POD_AVAILABLE_AFgzipRequestSerializer
+#define COCOAPODS_VERSION_MAJOR_AFgzipRequestSerializer 0
+#define COCOAPODS_VERSION_MINOR_AFgzipRequestSerializer 0
+#define COCOAPODS_VERSION_PATCH_AFgzipRequestSerializer 1
+
 // AUAccount
 #define COCOAPODS_POD_AVAILABLE_AUAccount
 #define COCOAPODS_VERSION_MAJOR_AUAccount 0
 #define COCOAPODS_VERSION_MINOR_AUAccount 2
 #define COCOAPODS_VERSION_PATCH_AUAccount 4
 
+// FormatterKit
+#define COCOAPODS_POD_AVAILABLE_FormatterKit
+#define COCOAPODS_VERSION_MAJOR_FormatterKit 1
+#define COCOAPODS_VERSION_MINOR_FormatterKit 5
+#define COCOAPODS_VERSION_PATCH_FormatterKit 1
+
+// FormatterKit/AddressFormatter
+#define COCOAPODS_POD_AVAILABLE_FormatterKit_AddressFormatter
+#define COCOAPODS_VERSION_MAJOR_FormatterKit_AddressFormatter 1
+#define COCOAPODS_VERSION_MINOR_FormatterKit_AddressFormatter 5
+#define COCOAPODS_VERSION_PATCH_FormatterKit_AddressFormatter 1
+
+// FormatterKit/ArrayFormatter
+#define COCOAPODS_POD_AVAILABLE_FormatterKit_ArrayFormatter
+#define COCOAPODS_VERSION_MAJOR_FormatterKit_ArrayFormatter 1
+#define COCOAPODS_VERSION_MINOR_FormatterKit_ArrayFormatter 5
+#define COCOAPODS_VERSION_PATCH_FormatterKit_ArrayFormatter 1
+
+// FormatterKit/ColorFormatter
+#define COCOAPODS_POD_AVAILABLE_FormatterKit_ColorFormatter
+#define COCOAPODS_VERSION_MAJOR_FormatterKit_ColorFormatter 1
+#define COCOAPODS_VERSION_MINOR_FormatterKit_ColorFormatter 5
+#define COCOAPODS_VERSION_PATCH_FormatterKit_ColorFormatter 1
+
+// FormatterKit/LocationFormatter
+#define COCOAPODS_POD_AVAILABLE_FormatterKit_LocationFormatter
+#define COCOAPODS_VERSION_MAJOR_FormatterKit_LocationFormatter 1
+#define COCOAPODS_VERSION_MINOR_FormatterKit_LocationFormatter 5
+#define COCOAPODS_VERSION_PATCH_FormatterKit_LocationFormatter 1
+
+// FormatterKit/OrdinalNumberFormatter
+#define COCOAPODS_POD_AVAILABLE_FormatterKit_OrdinalNumberFormatter
+#define COCOAPODS_VERSION_MAJOR_FormatterKit_OrdinalNumberFormatter 1
+#define COCOAPODS_VERSION_MINOR_FormatterKit_OrdinalNumberFormatter 5
+#define COCOAPODS_VERSION_PATCH_FormatterKit_OrdinalNumberFormatter 1
+
+// FormatterKit/TimeIntervalFormatter
+#define COCOAPODS_POD_AVAILABLE_FormatterKit_TimeIntervalFormatter
+#define COCOAPODS_VERSION_MAJOR_FormatterKit_TimeIntervalFormatter 1
+#define COCOAPODS_VERSION_MINOR_FormatterKit_TimeIntervalFormatter 5
+#define COCOAPODS_VERSION_PATCH_FormatterKit_TimeIntervalFormatter 1
+
+// FormatterKit/URLRequestFormatter
+#define COCOAPODS_POD_AVAILABLE_FormatterKit_URLRequestFormatter
+#define COCOAPODS_VERSION_MAJOR_FormatterKit_URLRequestFormatter 1
+#define COCOAPODS_VERSION_MINOR_FormatterKit_URLRequestFormatter 5
+#define COCOAPODS_VERSION_PATCH_FormatterKit_URLRequestFormatter 1
+
+// FormatterKit/UnitOfInformationFormatter
+#define COCOAPODS_POD_AVAILABLE_FormatterKit_UnitOfInformationFormatter
+#define COCOAPODS_VERSION_MAJOR_FormatterKit_UnitOfInformationFormatter 1
+#define COCOAPODS_VERSION_MINOR_FormatterKit_UnitOfInformationFormatter 5
+#define COCOAPODS_VERSION_PATCH_FormatterKit_UnitOfInformationFormatter 1
+
+// Godzippa
+#define COCOAPODS_POD_AVAILABLE_Godzippa
+#define COCOAPODS_VERSION_MAJOR_Godzippa 1
+#define COCOAPODS_VERSION_MINOR_Godzippa 0
+#define COCOAPODS_VERSION_PATCH_Godzippa 0
+
 // SSKeychain
 #define COCOAPODS_POD_AVAILABLE_SSKeychain
 #define COCOAPODS_VERSION_MAJOR_SSKeychain 1
 #define COCOAPODS_VERSION_MINOR_SSKeychain 2
 #define COCOAPODS_VERSION_PATCH_SSKeychain 2
+
+// STTwitter
+#define COCOAPODS_POD_AVAILABLE_STTwitter
+#define COCOAPODS_VERSION_MAJOR_STTwitter 0
+#define COCOAPODS_VERSION_MINOR_STTwitter 1
+#define COCOAPODS_VERSION_PATCH_STTwitter 3
 

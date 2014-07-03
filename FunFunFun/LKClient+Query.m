@@ -7,7 +7,17 @@
 //
 
 #import "LKClient+Query.h"
+#import "LKClient+Requests.h"
+
+#import "LKFriendsIDsSerializer.h"
 
 @implementation LKClient (Query)
+
++(void)fetchFollowedUsersIDsWithParameters: (NSDictionary *) params{
+    
+    NSMutableURLRequest *request = [[LKClient operationManager] requestFollowedUsersListWithParameters:params];
+    
+    
+}
 
 @end

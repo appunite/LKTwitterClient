@@ -9,12 +9,32 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-AFgzipRequestSerializer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-AUAccount.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-FormatterKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Godzippa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SSKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-STTwitter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>565BF27DB31F4ADB8BAC72B4</key>
+		<key>1AF4FCE1662A48DB95E3236D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CCB3411F011740528D042AFF</key>
+		<key>37883054C1524CEFBA527032</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D875FE8000BB42FAB513D165</key>
+		<key>52BFFF0B1F804097B0D52326</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E58AD0F8105E422C80330ADF</key>
+		<key>6DB0A77C9D6548FE89D0A2E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4799342437643F780217C9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0E74F75ACDC4980A605FB47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1D2FE0BE9F946E794474661</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE3C8607BEC3473B9FD287C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
