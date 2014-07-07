@@ -10,6 +10,6 @@
 
 @interface LKTweetCellTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UITextView* mainContent;
+@property (nonatomic, strong) IBOutlet UILabel* mainContent;
 
 @end

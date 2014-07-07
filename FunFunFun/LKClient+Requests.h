@@ -10,6 +10,6 @@
 
 @interface LKClient (Requests)
 
--(NSMutableURLRequest *) requestFollowedUsersListWithParameters: (NSDictionary*) params;
+- (NSMutableURLRequest *)requestGetTweetsFromGlobalFeed;
 
 @end

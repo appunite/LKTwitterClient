@@ -8,16 +8,24 @@
 
 #import "LKClient+Query.h"
 #import "LKClient+Requests.h"
-
-#import "LKFriendsIDsSerializer.h"
+#import "GIJSONResponseSerializer.h"
 
 @implementation LKClient (Query)
 
-+(void)fetchFollowedUsersIDsWithParameters: (NSDictionary *) params{
++(void)getTwitterGlobalFeedWithHandler:(void(^)(BOOL succes, NSArray *data, NSError *error))handler{
+    NSMutableURLRequest *request = [[LKClient manager] requestGetTweetsFromGlobalFeed];
     
-    NSMutableURLRequest *request = [[LKClient operationManager] requestFollowedUsersListWithParameters:params];
-    
+    [LKClient enqueueRequest:request responseSerializer:[AFJSONResponseSerializer serializer] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSDictionary *response = [[NSDictionary alloc] initWithDictionary:responseObject];
+        NSArray *data = [response objectForKey:@"data"];
+        
+        handler(YES, data, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        handler(NO, nil,  error);
+    }];
     
 }
+
 
 @end

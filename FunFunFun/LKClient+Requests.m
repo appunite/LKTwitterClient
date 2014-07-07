@@ -10,8 +10,12 @@
 
 @implementation LKClient (Requests)
 
--(NSMutableURLRequest *) requestFollowedUsersListWithParameters: (NSDictionary*) params{
-    return [self.requestSerializer requestWithMethod:@"GET" URLString:@"https://api.twitter.com/1.1/friends/ids.json" parameters:params error:NULL];
+- (NSMutableURLRequest *)requestGetTweetsFromGlobalFeed{
+    
+    return [self.requestSerializer requestWithMethod:@"GET"
+                                           URLString:kGlobalFeedURL
+                                          parameters:nil
+                                               error:NULL];
 }
 
 @end

@@ -194,6 +194,7 @@
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
 
+/*
 -(NSString *)getAuthorizationHeaderForHTTPMethod: (NSString *)method forBaseURL: (NSString *) URL
 {
     
@@ -213,16 +214,16 @@
     
      return string;
 }
-
+*/
 
 //CALCULATED WITH SIGNATURE BASE STRING AND SIGNING KEY
 
--(NSString *)getOauthSignatureForHTTPMethod: (NSString *)HTTPMethod forBaseURL: (NSString *) URL
+/*-(NSString *)getOauthSignatureForHTTPMethod: (NSString *)HTTPMethod forBaseURL: (NSString *) URL
 {
     NSString *hmac = [self getSignatureBaseStringWithHTTPMethod:HTTPMethod forBaseURL:URL];
     NSString *key = [self getSigningKey];
     return [LKFunctions hmacsha1:hmac secret:key];
-}
+}*/
 
 
 ////////////////////////////////////////////////

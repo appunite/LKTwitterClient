@@ -44,6 +44,9 @@ PODS:
   - FormatterKit/UnitOfInformationFormatter (1.5.1)
   - FormatterKit/URLRequestFormatter (1.5.1)
   - Godzippa (1.0.0)
+  - Mantle (1.4.1):
+    - Mantle/extobjc
+  - Mantle/extobjc (1.4.1)
   - SSKeychain (1.2.2)
   - STTwitter (0.1.3)
 
@@ -53,6 +56,7 @@ DEPENDENCIES:
   - AUAccount (~> 0.2)
   - Base64
   - FormatterKit (from `https://github.com/appunite/FormatterKit.git`)
+  - Mantle (~> 1.4.1)
   - STTwitter
 
 EXTERNAL SOURCES:
@@ -66,6 +70,7 @@ SPEC CHECKSUMS:
   Base64: c6d74f31f150543b246a07e180ba813c88e59311
   FormatterKit: 0dc36128cee4cde23a4322874c47b7af0cf75a4b
   Godzippa: 1aa13727d7abc32ef870c65051a41ce06cae2ad8
+  Mantle: 1ca9c0fa84d3d3fc98524e7229f30489b6dd44e5
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   STTwitter: cbfe847b9dc263e6206fc1e92ce325764bbbc18b
 

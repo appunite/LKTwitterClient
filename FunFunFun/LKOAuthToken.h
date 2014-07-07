@@ -23,7 +23,7 @@
 
 -(NSArray *) getTokenAndSecretForUser: (NSString *) user withPassword: (NSString *)password;
 
--(NSString *)getAuthorizationHeaderForHTTPMethod: (NSString *)method forBaseURL: (NSString *) URL;
+//-(NSString *)getAuthorizationHeaderForHTTPMethod: (NSString *)method forBaseURL: (NSString *) URL;
 
 
 @end

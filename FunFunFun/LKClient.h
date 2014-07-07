@@ -14,8 +14,6 @@
 
 @interface LKClient : AFHTTPRequestOperationManager
 
-+(instancetype)operationManager;
-
 +(void)enqueueOperation:(NSOperation *)operation;
 
 + (void)enqueueRequest:(NSURLRequest *)request

@@ -10,6 +10,7 @@
 
 @interface LKClient (Query)
 
-+(void)fetchFollowedUsersIDsWithParameters: (NSDictionary *) params;
++(void)getTwitterGlobalFeedWithHandler:(void(^)(BOOL succes, NSArray *data, NSError *error))handler;
+
 
 @end

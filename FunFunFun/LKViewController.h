@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "LKOAuthToken.h"
+#import "LKTwitterClient.h"
+#import "LKClient.h"
+#import "LKClient+Query.h"
+#import "LKTweet.h"
 
-@interface LKViewController : UIViewController <UITextFieldDelegate>
+@interface LKViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
-@property (nonatomic, strong) IBOutlet UITextField *userNameTextField;
-@property (nonatomic, strong) IBOutlet UITextField *userPasswordTextField;
-@property (nonatomic, strong) LKOAuthToken *tokenGetter;
-@property (nonatomic, strong) NSArray * tokenAndSecret;
+@property (nonatomic, strong) IBOutlet UITextField *tweetContent;
+@property (nonatomic, strong) IBOutlet UITableView *tweetsTableView;
+@property (nonatomic, strong) LKTwitterClient *twitterClient;
+
+@property (nonatomic, strong) NSDictionary *responseDictionary;
+@property (nonatomic, strong) NSMutableArray *tweets;
 
 @end
