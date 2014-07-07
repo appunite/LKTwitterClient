@@ -10,6 +10,8 @@
 #import "STTwitterAPI.h"
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
+#import "LKFunctions.h"
+#include "constants.h"
 
 @interface LKOAuthToken : NSObject
 
@@ -20,6 +22,8 @@
 -(NSArray *)getOAuthTokenAndSecret;
 
 -(NSArray *) getTokenAndSecretForUser: (NSString *) user withPassword: (NSString *)password;
+
+-(NSString *)getAuthorizationHeaderForHTTPMethod: (NSString *)method forBaseURL: (NSString *) URL;
 
 
 @end

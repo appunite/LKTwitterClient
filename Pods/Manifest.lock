@@ -25,6 +25,7 @@ PODS:
     - AFNetworking/NSURLSession
   - AUAccount (0.2.4):
     - SSKeychain
+  - Base64 (1.0.1)
   - FormatterKit (1.5.1):
     - FormatterKit/AddressFormatter
     - FormatterKit/ArrayFormatter
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - AFgzipRequestSerializer
   - AFNetworking (~> 2.2)
   - AUAccount (~> 0.2)
+  - Base64
   - FormatterKit (from `https://github.com/appunite/FormatterKit.git`)
   - STTwitter
 
@@ -61,6 +63,7 @@ SPEC CHECKSUMS:
   AFgzipRequestSerializer: ed7ac302fc5c869c51bb49ed3fd8938438efce80
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   AUAccount: 4e6cdf4686ebf7ae467ec2757d36a458d23b3140
+  Base64: c6d74f31f150543b246a07e180ba813c88e59311
   FormatterKit: 0dc36128cee4cde23a4322874c47b7af0cf75a4b
   Godzippa: 1aa13727d7abc32ef870c65051a41ce06cae2ad8
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9

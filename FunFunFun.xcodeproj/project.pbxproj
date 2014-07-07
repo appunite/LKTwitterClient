@@ -29,6 +29,8 @@
 		D75331931962FFD40081F7FE /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75331921962FFD40081F7FE /* Accounts.framework */; };
 		D75331951962FFE00081F7FE /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75331941962FFE00081F7FE /* Social.framework */; };
 		D7533199196304DA0081F7FE /* GIJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7533198196304DA0081F7FE /* GIJSONResponseSerializer.m */; };
+		D76E064E196A955A0090688D /* libcommonCrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D76E064D196A955A0090688D /* libcommonCrypto.dylib */; };
+		D7713C9C1966DFAD00EB266D /* LKFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = D7713C9B1966DFAD00EB266D /* LKFunctions.m */; };
 		D7815C4E1965B78700DAB15A /* LKTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = D7815C4D1965B78700DAB15A /* LKTweet.m */; };
 		D7815C511965B82E00DAB15A /* LKTwitterAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = D7815C501965B82E00DAB15A /* LKTwitterAuthor.m */; };
 		D7815C541965BC9000DAB15A /* LKTweetCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D7815C531965BC9000DAB15A /* LKTweetCellTableViewCell.m */; };
@@ -80,6 +82,10 @@
 		D75331941962FFE00081F7FE /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D7533197196304DA0081F7FE /* GIJSONResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIJSONResponseSerializer.h; sourceTree = "<group>"; };
 		D7533198196304DA0081F7FE /* GIJSONResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIJSONResponseSerializer.m; sourceTree = "<group>"; };
+		D76E064D196A955A0090688D /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		D7713C981966A38700EB266D /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		D7713C9A1966DFAD00EB266D /* LKFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKFunctions.h; sourceTree = "<group>"; };
+		D7713C9B1966DFAD00EB266D /* LKFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKFunctions.m; sourceTree = "<group>"; };
 		D7815C4C1965B78700DAB15A /* LKTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTweet.h; sourceTree = "<group>"; };
 		D7815C4D1965B78700DAB15A /* LKTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTweet.m; sourceTree = "<group>"; };
 		D7815C4F1965B82E00DAB15A /* LKTwitterAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTwitterAuthor.h; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D76E064E196A955A0090688D /* libcommonCrypto.dylib in Frameworks */,
 				D75331951962FFE00081F7FE /* Social.framework in Frameworks */,
 				D75331931962FFD40081F7FE /* Accounts.framework in Frameworks */,
 				D71B43B71962D0F000FFFF3A /* CoreGraphics.framework in Frameworks */,
@@ -144,6 +151,7 @@
 		D71B43B31962D0F000FFFF3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D76E064D196A955A0090688D /* libcommonCrypto.dylib */,
 				D75331941962FFE00081F7FE /* Social.framework */,
 				D75331921962FFD40081F7FE /* Accounts.framework */,
 				D71B43B41962D0F000FFFF3A /* Foundation.framework */,
@@ -169,6 +177,7 @@
 				D7815C4B1965B6C200DAB15A /* Twitter Data Classes */,
 				D71B43CF1962D0F000FFFF3A /* Images.xcassets */,
 				D71B43BB1962D0F000FFFF3A /* Supporting Files */,
+				D7713C991966DF6A00EB266D /* Globals */,
 			);
 			path = FunFunFun;
 			sourceTree = "<group>";
@@ -225,6 +234,16 @@
 				D7AAA989196593A500B0BAF6 /* LKFriendsIDsSerializer.m */,
 			);
 			name = Serializers;
+			sourceTree = "<group>";
+		};
+		D7713C991966DF6A00EB266D /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				D7713C981966A38700EB266D /* constants.h */,
+				D7713C9A1966DFAD00EB266D /* LKFunctions.h */,
+				D7713C9B1966DFAD00EB266D /* LKFunctions.m */,
+			);
+			name = Globals;
 			sourceTree = "<group>";
 		};
 		D7815C4B1965B6C200DAB15A /* Twitter Data Classes */ = {
@@ -409,6 +428,7 @@
 				D7815C511965B82E00DAB15A /* LKTwitterAuthor.m in Sources */,
 				D753318E1962FE3F0081F7FE /* LKClient+Query.m in Sources */,
 				D7F1A9C31965B55600069663 /* LKTweetsViewController.m in Sources */,
+				D7713C9C1966DFAD00EB266D /* LKFunctions.m in Sources */,
 				D75331911962FE590081F7FE /* LKClient+Requests.m in Sources */,
 				D7815C541965BC9000DAB15A /* LKTweetCellTableViewCell.m in Sources */,
 				D7AAA98A196593A500B0BAF6 /* LKFriendsIDsSerializer.m in Sources */,
@@ -552,6 +572,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FunFunFun/FunFunFun-Prefix.pch";
 				INFOPLIST_FILE = "FunFunFun/FunFunFun-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -566,6 +590,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FunFunFun/FunFunFun-Prefix.pch";
 				INFOPLIST_FILE = "FunFunFun/FunFunFun-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

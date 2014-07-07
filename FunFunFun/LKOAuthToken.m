@@ -8,6 +8,15 @@
 
 #import "LKOAuthToken.h"
 
+@interface LKOAuthToken()
+
+@property (nonatomic, strong) NSString *oauthNonce;
+@property (nonatomic, strong) NSString *timeStamp;
+@property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString *tokenSecret;
+
+@end
+
 @implementation LKOAuthToken
 
 
@@ -96,11 +105,10 @@
 
 -(NSString *) getRequestToken{
     NSMutableDictionary *reqTokenParams = [[NSMutableDictionary alloc] init];
-    [reqTokenParams setValue:@"uMy9qV14RsgD4NLvDUO3p3UcC" forKey:@"oauth_consumer_key"];
-    [reqTokenParams setValue:[self randomStringWithLength:32] forKey:@"oauth_nonce" ];
+    [reqTokenParams setValue:CONSUMER_KEY forKey:@"oauth_consumer_key"];
+    [reqTokenParams setValue:[LKFunctions randomStringWithLength:32] forKey:@"oauth_nonce" ];
     [reqTokenParams setValue:@"HMAC-SHA1" forKey:@"oauth_signature_method"];
-    NSString *sinceUnixEpoch = [NSString stringWithFormat:@"%d", (int)NSTimeIntervalSince1970 ];
-    [reqTokenParams setValue:sinceUnixEpoch forKey:@"oauth_timestamp" ];
+    [reqTokenParams setValue:[LKFunctions sinceUnixEpochString] forKey:@"oauth_timestamp" ];
     [reqTokenParams setValue:@"1.0" forKey: @"oauth_version"];
     [reqTokenParams setValue:@"reverse_auth" forKey:@"x_auth_mode"];
     
@@ -149,19 +157,6 @@
         
 }
  
- 
- 
--(NSString *) randomStringWithLength: (int) len {
-    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
-    
-    for (int i=0; i<len; i++) {
-        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length]) % [letters length]]];
-    }
-    
-    return randomString;
-}
- 
 
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
@@ -173,7 +168,7 @@
 
 
 -(NSArray *) getTokenAndSecretForUser: (NSString *) user withPassword: (NSString *)password{
-    self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:@"uMy9qV14RsgD4NLvDUO3p3UcC" consumerSecret:@"zPH9eDZyQO7xs1nrROApH9LCUYtZ2s8Kc148TuEPDamg9sb3Cg" username:user password:password];
+    self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:CONSUMER_KEY consumerSecret:CONSUMER_SECRET username:user password:password];
     
     __block NSArray *tokenAndSecret;
     
@@ -189,6 +184,113 @@
     
     return tokenAndSecret;
 }
+
+
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+//
+// GET AUTH HEADER
+//
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+
+-(NSString *)getAuthorizationHeaderForHTTPMethod: (NSString *)method forBaseURL: (NSString *) URL
+{
+    
+    self.timeStamp = [LKFunctions sinceUnixEpochString];
+    self.oauthNonce = [LKFunctions randomStringWithLength:32];
+    NSString *signature = [self getOauthSignatureForHTTPMethod:method forBaseURL:URL];
+    
+    NSMutableString *string = [NSMutableString string];
+    
+     NSArray *keys = @[@"oauth_consumer_key", @"oauth_nonce", @"oauth_signature", @"oauth_signature_method", @"oauth_timestamp", @"oauth_token", @"oauth_version"];
+     //NSArray *values = @[CONSUMER_SECRET_QUOTATION, ];
+    
+    
+    
+    //NSDictionary *header = [NSDictionary dictionaryWithObjectsAndKeys:CONSUMER_KEY, @"oauth_consumer_key", self.oauthNonce, @"oauth_nonce", signature, @"oauth_signature", OAUTH_SIGNATURE_METHOD, @"oauth_signature_method", self.timeStamp, @"oauth_timestamp", self.token, @"oauth_token", @"1.0", @"oauth_version", nil];
+    
+    
+     return string;
+}
+
+
+//CALCULATED WITH SIGNATURE BASE STRING AND SIGNING KEY
+
+-(NSString *)getOauthSignatureForHTTPMethod: (NSString *)HTTPMethod forBaseURL: (NSString *) URL
+{
+    NSString *hmac = [self getSignatureBaseStringWithHTTPMethod:HTTPMethod forBaseURL:URL];
+    NSString *key = [self getSigningKey];
+    return [LKFunctions hmacsha1:hmac secret:key];
+}
+
+
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+//
+// CREATE SIGNATURE ELEMENTS
+//
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+
+-(NSString *)getSigningKey{
+    //Percent encoded consumer secret & percent encoded token secret
+    NSMutableString *str = [NSMutableString string];
+    [str appendString:[LKFunctions percentEncodeString:CONSUMER_SECRET]];
+    [str appendString:@"&"];
+    [str appendString:[LKFunctions percentEncodeString:self.tokenSecret]];
+    
+    return str;
+}
+
+-(NSString *)getPametersString{
+    
+    NSMutableArray *keys = [NSMutableArray arrayWithObjects:@"include_entities", @"oauth_consumer_key", @"oauth_nonce", @"oauth_signature_method", @"oauth_timestamp", @"oauth_token", @"oauth_version", nil];
+    NSMutableArray *values = [NSMutableArray arrayWithObjects:@"true", CONSUMER_KEY, self.oauthNonce, OAUTH_SIGNATURE_METHOD, self.timeStamp, self.token, @"1.0", nil];
+    
+    for (int i = 0; i<[keys count]; ++i){
+        keys[i] = [LKFunctions percentEncodeString:[keys objectAtIndex:i]];
+        values[i] = [LKFunctions percentEncodeString:[values objectAtIndex:i]];
+    }
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    
+    [keys sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    NSMutableString *paramsString = [NSMutableString string];
+    
+    for (NSString *key in keys){
+        [paramsString appendString:key];
+        [paramsString appendString:@"="];
+        [paramsString appendString:[params objectForKey:key]];
+    }
+    
+    NSRange range = NSMakeRange([keys count]-1, 1);
+    
+    [paramsString deleteCharactersInRange:range];
+    
+    return paramsString;
+    
+}
+
+-(NSString *)getSignatureBaseStringWithHTTPMethod: (NSString *) method forBaseURL:(NSString *)baseURL {
+    NSMutableString *signatureBaseString = [NSMutableString string];
+    NSString *params = [self getPametersString];
+    
+    [signatureBaseString appendString:method];
+    [signatureBaseString appendString:@"&"];
+    [signatureBaseString appendString:[LKFunctions percentEncodeString:baseURL]];
+    [signatureBaseString appendString:@"&"];
+    [signatureBaseString appendString:[LKFunctions percentEncodeString:params]];
+    
+    return signatureBaseString;
+}
+
+
+
+
+
+
 
 
 @end

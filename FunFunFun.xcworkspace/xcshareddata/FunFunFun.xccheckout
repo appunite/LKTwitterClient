@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E4612371-AFAB-45A0-95E3-2A2C35CCC138</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FunFunFun</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5BAFB262-E64A-420F-B87F-F49035A151B1</key>
+		<string>ssh://github.com/appunite/LKTwitterClient.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FunFunFun.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5BAFB262-E64A-420F-B87F-F49035A151B1</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/appunite/LKTwitterClient.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5BAFB262-E64A-420F-B87F-F49035A151B1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5BAFB262-E64A-420F-B87F-F49035A151B1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FunFunFun</string>
+		</dict>
+	</array>
+</dict>
+</plist>
