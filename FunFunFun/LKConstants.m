@@ -18,6 +18,7 @@ NSString* const kConsumerKey = @"uMy9qV14RsgD4NLvDUO3p3UcC";
 NSString* const kConsumerSecret = @"zPH9eDZyQO7xs1nrROApH9LCUYtZ2s8Kc148TuEPDamg9sb3Cg";
 NSString* const kOauthSignatureMethod = @"HMAC-SHA1";
 NSString* const kGlobalFeedURL = @"https://alpha-api.app.net/stream/0/posts/stream/global";
+NSString* const kUpdateTwitterStatusURL = @"https://api.twitter.com/1.1/statuses/update.json";
 
 
 @end

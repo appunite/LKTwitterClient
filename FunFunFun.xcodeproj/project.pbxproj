@@ -37,7 +37,8 @@
 		D7D0B29C196AE01300EF23B4 /* LKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D0B29B196AE01300EF23B4 /* LKConstants.m */; };
 		D7D0B29F196AFFAD00EF23B4 /* LKTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D0B29E196AFFAD00EF23B4 /* LKTweet.m */; };
 		D7D0B2A1196B00BB00EF23B4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0B2A0196B00BB00EF23B4 /* Security.framework */; };
-		D7F1A9C31965B55600069663 /* LKTweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F1A9C21965B55600069663 /* LKTweetsViewController.m */; };
+		D7E5553C196C1F1000444270 /* LKViewUserTweetsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E5553B196C1F1000444270 /* LKViewUserTweetsVC.m */; };
+		D7E5553E196C1F6800444270 /* iPhoneUserTweets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E5553D196C1F6800444270 /* iPhoneUserTweets.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,8 +101,9 @@
 		D7D0B29D196AFFAD00EF23B4 /* LKTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTweet.h; sourceTree = "<group>"; };
 		D7D0B29E196AFFAD00EF23B4 /* LKTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTweet.m; sourceTree = "<group>"; };
 		D7D0B2A0196B00BB00EF23B4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		D7F1A9C11965B55600069663 /* LKTweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTweetsViewController.h; sourceTree = "<group>"; };
-		D7F1A9C21965B55600069663 /* LKTweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTweetsViewController.m; sourceTree = "<group>"; };
+		D7E5553A196C1F1000444270 /* LKViewUserTweetsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKViewUserTweetsVC.h; sourceTree = "<group>"; };
+		D7E5553B196C1F1000444270 /* LKViewUserTweetsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKViewUserTweetsVC.m; sourceTree = "<group>"; };
+		D7E5553D196C1F6800444270 /* iPhoneUserTweets.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneUserTweets.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,13 +284,30 @@
 			name = TokenManagement;
 			sourceTree = "<group>";
 		};
-		D7F1A9BD1965B3F800069663 /* ViewControllers */ = {
+		D7E55538196C1E9A00444270 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
 				D71B43CC1962D0F000FFFF3A /* LKViewController.h */,
 				D71B43CD1962D0F000FFFF3A /* LKViewController.m */,
-				D7F1A9C11965B55600069663 /* LKTweetsViewController.h */,
-				D7F1A9C21965B55600069663 /* LKTweetsViewController.m */,
+			);
+			name = MainVC;
+			sourceTree = "<group>";
+		};
+		D7E55539196C1EAB00444270 /* UserTweetsVC */ = {
+			isa = PBXGroup;
+			children = (
+				D7E5553A196C1F1000444270 /* LKViewUserTweetsVC.h */,
+				D7E5553B196C1F1000444270 /* LKViewUserTweetsVC.m */,
+				D7E5553D196C1F6800444270 /* iPhoneUserTweets.storyboard */,
+			);
+			name = UserTweetsVC;
+			sourceTree = "<group>";
+		};
+		D7F1A9BD1965B3F800069663 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7E55538196C1E9A00444270 /* MainVC */,
+				D7E55539196C1EAB00444270 /* UserTweetsVC */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -376,6 +395,7 @@
 				D71B43D01962D0F000FFFF3A /* Images.xcassets in Resources */,
 				D71B43C81962D0F000FFFF3A /* Main_iPhone.storyboard in Resources */,
 				D71B43BF1962D0F000FFFF3A /* InfoPlist.strings in Resources */,
+				D7E5553E196C1F6800444270 /* iPhoneUserTweets.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,8 +453,8 @@
 				D71B43C51962D0F000FFFF3A /* LKAppDelegate.m in Sources */,
 				D76E0654196AC6E10090688D /* LKTwitterClient.m in Sources */,
 				D753318E1962FE3F0081F7FE /* LKClient+Query.m in Sources */,
-				D7F1A9C31965B55600069663 /* LKTweetsViewController.m in Sources */,
 				D76E0651196AA6320090688D /* NSString+Additions.m in Sources */,
+				D7E5553C196C1F1000444270 /* LKViewUserTweetsVC.m in Sources */,
 				D7713C9C1966DFAD00EB266D /* LKFunctions.m in Sources */,
 				D75331911962FE590081F7FE /* LKClient+Requests.m in Sources */,
 				D7D0B29F196AFFAD00EF23B4 /* LKTweet.m in Sources */,

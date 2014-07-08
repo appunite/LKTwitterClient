@@ -10,6 +10,63 @@
 
 @implementation LKTwitterClient
 
+/*-(void)requestAccessToTwitterAccount{
+    if (!self.accountStore) self.accountStore = [[ACAccountStore alloc] init];
+    
+    ACAccountType *twitterType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    
+}*/
+
+//-(instancetype) init{
+  //  self.delegate
+//}
+
+-(void)postTweetWithContent:(NSString *)content{
+    if (!self.accountStore) self.accountStore = [[ACAccountStore alloc]init];
+    
+    ACAccountType *twitterType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    [self.accountStore requestAccessToAccountsWithType:twitterType options:nil completion:^(BOOL granted, NSError *error){
+        
+        if(granted){
+            NSArray *accounts = [self.accountStore accountsWithAccountType:twitterType];
+            
+            ACAccount *account = [accounts objectAtIndex:0];
+            
+            NSURL *postStatusUpdateURL = [NSURL URLWithString:kUpdateTwitterStatusURL];
+            
+            SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:postStatusUpdateURL parameters:@{@"status":content}];
+            
+            [request setAccount:account];
+            
+            [request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+                if (!error){
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.delegate tweetWasSuccessfullyPosted];
+                    });
+                }
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:NULL];
+                NSLog(@"%@", dict);
+                NSArray *errors = [dict objectForKey:@"errors"];
+                if (errors){
+                    NSDictionary *error = [errors objectAtIndex:0];
+                        NSString *message = [error objectForKey:@"message"];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.delegate printError:message];
+                        });
+                    
+                }
+            }];
+        }
+        else {
+            NSLog(@"Access to Twitter account denied.");
+            [self.delegate postTwitterAccessDenialInfo];
+        }
+        
+    }];
+}
+/*
 -(void)postTweetWithContent:(NSString *)content{
     if (!self.accountStore) self.accountStore = [[ACAccountStore alloc]init];
     
@@ -60,5 +117,5 @@
         
     }];
 }
-
+*/
 @end

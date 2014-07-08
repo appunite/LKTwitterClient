@@ -18,8 +18,10 @@
 
 @property (nonatomic, strong) IBOutlet UITextField *tweetContent;
 @property (nonatomic, strong) IBOutlet UITableView *tweetsTableView;
-@property (nonatomic, strong) LKTwitterClient *twitterClient;
+@property (nonatomic, strong) IBOutlet UIView * generalView;
 
+
+@property (nonatomic, strong) LKTwitterClient *twitterClient;
 @property (nonatomic, strong) NSDictionary *responseDictionary;
 @property (nonatomic, strong) NSMutableArray *tweets;
 

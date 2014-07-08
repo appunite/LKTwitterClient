@@ -11,7 +11,7 @@
 
 
 
-@interface LKViewController ()
+@interface LKViewController () <LKTwitterClientDelegate>
 
 @end
 
@@ -22,13 +22,25 @@
     [super viewDidLoad];
     self.tweetsTableView.delegate = self;
     self.tweetsTableView.dataSource = self;
+    self.tweets = [[NSMutableArray alloc] init];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnGeneralView:)];
+    [self.generalView addGestureRecognizer:tap];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)setTwitterClient:(LKTwitterClient *)twitterClient{
+    _twitterClient = twitterClient;
+    _twitterClient.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)tapOnGeneralView:(UITapGestureRecognizer *)sender{
+    [self.tweetContent resignFirstResponder];
 }
 
 -(IBAction)showTweets{
@@ -58,12 +70,9 @@
     
     if (!self.twitterClient) self.twitterClient = [[LKTwitterClient alloc] init];
     
-    [self.twitterClient postTweetWithContent:@"Test tweet"];
+    [self.twitterClient postTweetWithContent:self.tweetContent.text];
     
-    /*if ([self.userNameTextField.text length] > 0 && [self.userPasswordTextField.text length] > 0) {
-        self.tokenAndSecret = [self.tokenGetter getTokenAndSecretForUser:self.userNameTextField.text withPassword: self.userPasswordTextField.text];
-        NSLog(@"User's token: %@. User's secret: %@", [self.tokenAndSecret objectAtIndex:0], [self.tokenAndSecret objectAtIndex:1]);
-    }*/
+    [self.tweetContent resignFirstResponder];
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -78,6 +87,7 @@
 #pragma mark - UITable View Delegate&DataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSLog([NSString stringWithFormat:@"Number o tweets: %lu", self.tweets.count]);
     return [self.tweets count];
 }
 
@@ -86,9 +96,27 @@
     LKTweetCellTableViewCell *cell = [self.tweetsTableView dequeueReusableCellWithIdentifier:cellID];
     LKTweet *tweet = [self.tweets objectAtIndex:indexPath.row];
     cell.mainContent.text = tweet.content;
+    cell.tweetAuthorLabel.text = tweet.author;
+    NSLog([NSString stringWithFormat:@"Tweet's content: %@", tweet.content]);
     // Set up cell properites!
     
     return cell;
+}
+
+#pragma mark - LKTwitterClient Delegate Methods
+
+-(void)postTwitterAccessDenialInfo{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Access denial" message:@"Access to Twitter account hasn't been granted for this app. Go to Settings->Privacy->Twitter to change this." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+-(void)tweetWasSuccessfullyPosted{
+    self.tweetContent.text = @"";
+}
+
+-(void)printError:(NSString *)error{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Couldn't post tweet" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

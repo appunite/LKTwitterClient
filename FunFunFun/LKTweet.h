@@ -13,10 +13,10 @@
 
 @interface LKTweet : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic) NSString *author;
-@property (nonatomic) NSString *content;
-@property (nonatomic) NSDate *createdAt;
-@property (nonatomic) NSString *usersAvatarImageURL;
+@property (nonatomic, strong) NSString *author;
+@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong) NSString *usersAvatarImageURL;
 
 @end
 
