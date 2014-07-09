@@ -27,6 +27,19 @@
     return hash;
 }*/
 
+#pragma mark - Date Formatter
+
++(NSDateFormatter *)dateFormatter {
+    static NSDateFormatter* __sharedInstance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __sharedInstance = [[NSDateFormatter alloc] init];
+        [__sharedInstance setDateFormat:@"yyyy-MM-dd  HH:mm:ssz"];
+    });
+    
+    return __sharedInstance;
+}
+
 
 +(NSString *) randomStringWithLength: (int) len {
     NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

@@ -11,7 +11,6 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 #import "LKFunctions.h"
-#include "constants.h"
 
 @interface LKOAuthToken : NSObject
 

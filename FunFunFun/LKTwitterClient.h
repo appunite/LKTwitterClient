@@ -10,6 +10,21 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 
+@protocol LKTwitterClientDelegate;
+@interface LKTwitterClient : NSObject
+
+@property (nonatomic, strong) ACAccountStore *accountStore;
+@property (nonatomic) BOOL accessToTwitterAccountGranted;
+@property (nonatomic, weak) id <LKTwitterClientDelegate> delegate;
+
+
+-(void)postTweetWithContent:(NSString *)content;
+-(void)getUserTweetsWithCompletionHandler:(void(^)(BOOL success, NSArray* tweets, NSError *error))handler;
+
+
+@end
+
+
 @protocol LKTwitterClientDelegate <NSObject>
 
 @optional
@@ -20,15 +35,10 @@
 @end
 
 
-@interface LKTwitterClient : NSObject
+@interface LKTwitterClient (Requests)
 
-@property (nonatomic, strong) ACAccountStore *accountStore;
-@property (nonatomic) BOOL accessToTwitterAccountGranted;
-@property (nonatomic, weak) id <LKTwitterClientDelegate> delegate;
+-(SLRequest *)requestPostStatusUpdate:(NSString*)update;
 
-
-//-(void)requestAccessToTwitterAccount;
--(void)postTweetWithContent:(NSString *)content;
-
+-(SLRequest *)requestGetUserTweets;
 
 @end

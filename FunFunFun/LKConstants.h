@@ -14,7 +14,11 @@
 extern NSString* const kConsumerKey;
 extern NSString* const kConsumerSecret;
 extern NSString* const kOauthSignatureMethod;
+
 extern NSString* const kGlobalFeedURL;
 extern NSString* const kUpdateTwitterStatusURL;
+extern NSString* const kGetUserTweetsURL;
+
+extern NSString* const kiPhoneUserTweetsStoryboard;
 
 @end

@@ -11,6 +11,7 @@
 @interface LKFunctions : NSObject
 
 //+(NSString *)hmacsha1:(NSString *)data secret:(NSString *)key;
++(NSDateFormatter *)dateFormatter;
 +(NSString *)randomStringWithLength: (int) len;
 +(NSString *)sinceUnixEpochString;
 +(NSString *)percentEncodeString: (NSString *)SRC;

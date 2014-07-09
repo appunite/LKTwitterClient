@@ -10,17 +10,7 @@
 
 @implementation LKTwitterClient
 
-/*-(void)requestAccessToTwitterAccount{
-    if (!self.accountStore) self.accountStore = [[ACAccountStore alloc] init];
-    
-    ACAccountType *twitterType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    
-    
-}*/
 
-//-(instancetype) init{
-  //  self.delegate
-//}
 
 -(void)postTweetWithContent:(NSString *)content{
     if (!self.accountStore) self.accountStore = [[ACAccountStore alloc]init];
@@ -34,9 +24,7 @@
             
             ACAccount *account = [accounts objectAtIndex:0];
             
-            NSURL *postStatusUpdateURL = [NSURL URLWithString:kUpdateTwitterStatusURL];
-            
-            SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:postStatusUpdateURL parameters:@{@"status":content}];
+            SLRequest *request = [self requestPostStatusUpdate:content];
             
             [request setAccount:account];
             
@@ -66,56 +54,68 @@
         
     }];
 }
-/*
--(void)postTweetWithContent:(NSString *)content{
+
+-(void)getUserTweetsWithCompletionHandler:(void (^)(BOOL success, NSArray* tweets, NSError *))handler{
     if (!self.accountStore) self.accountStore = [[ACAccountStore alloc]init];
-    
-    NSString *usrName = @"user";
     
     ACAccountType *twitterType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     
     [self.accountStore requestAccessToAccountsWithType:twitterType options:nil completion:^(BOOL granted, NSError *error){
         
-        NSArray *accounts = [self.accountStore accountsWithAccountType:twitterType];
-        
-        ACAccount *account = [accounts objectAtIndex:0];
-        
-        NSURL *usersShowURL = [NSURL URLWithString:@"http://api.twitter.com/1/users/show.json"];
-        
-        SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:usersShowURL parameters:[NSDictionary dictionaryWithObject:usrName forKey:@"screen_name"]];
-        
-        
-        [request setAccount:account];
-        [request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-            NSDictionary *userObject = (NSDictionary*)[NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:NULL];
+        if(granted){
+            NSArray *accounts = [self.accountStore accountsWithAccountType:twitterType];
             
-            NSString *geoEnabled = [userObject objectForKey:@"geo_enabled"];
+            ACAccount *account = [accounts objectAtIndex:0];
             
-            if(!geoEnabled){
-                NSURL *statusUpdateURL = [NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"];
-                
-                //Byc moze wroce sobie pozniej do tego i zrobie pobieranie wspolrzednych.
-                
-                NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        content, @"status",
-                                        @"37.7821120598956", @"lat", @"-122.400612831116",
-                                        @"long",
-                                        nil];
-                
-                SLRequest *requestWithGeo = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:statusUpdateURL parameters:params];
-                
-                [requestWithGeo setAccount:account];
-                
-                [requestWithGeo performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-                    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:NULL];
-                    NSLog(@"%@", dict);
-                    
-                }];
-            } else
-                NSLog(@"Localization services not enabled");
-        }];
+            SLRequest *request = [self requestGetUserTweets];
+            
+            NSLog(@"Request: %@", request);
+            
+            [request setAccount:account];
+            
+            [request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+                NSArray *tweets = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:NULL];
+                //NSLog(@"Response dictionary: %@", response);
+                //NSDictionary *response = [[NSDictionary alloc] initWithDictionary:responseData];
+                //NSArray *tweets = [response objectForKey:@"data"];
+                NSLog(@"Tweets array: %@", tweets);
+                if (tweets){
+                    handler(YES, tweets, error);
+                }
+                //Change value for error.
+                else handler(NO, nil, nil);
+            }];
+        }
+        else {
+            NSLog(@"Access to Twitter account denied.");
+            //Change value for error.
+            handler(NO, nil, nil);
+        }
         
     }];
 }
-*/
+
+
+
+@end
+
+
+
+
+
+
+
+
+@implementation LKTwitterClient (Requests)
+
+-(SLRequest *)requestPostStatusUpdate:(NSString*)update{
+    NSURL *url = [NSURL URLWithString:kUpdateTwitterStatusURL];
+    return [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:url parameters:@{@"status":update}];
+}
+
+-(SLRequest *)requestGetUserTweets{
+    NSURL *url = [NSURL URLWithString:kGetUserTweetsURL];
+    return [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:nil];
+}
+
 @end

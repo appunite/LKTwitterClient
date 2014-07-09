@@ -8,6 +8,7 @@
 
 #import "LKViewController.h"
 #import "LKTweetCellTableViewCell.h"
+#import "LKUserTweetsVC.h"
 
 
 
@@ -22,10 +23,27 @@
     [super viewDidLoad];
     self.tweetsTableView.delegate = self;
     self.tweetsTableView.dataSource = self;
+    self.twitterClient = [[LKTwitterClient alloc] init];
+    
     self.tweets = [[NSMutableArray alloc] init];
+    [self showTweets];
+    
+    //HIDING KEYBOARD
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnGeneralView:)];
     [self.generalView addGestureRecognizer:tap];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    //PULL TO REFRESH
+	
+    self.tableViewController = [[UITableViewController alloc] init];
+    self.tableViewController.tableView = self.tweetsTableView;
+    
+    self.refresh = [[UIRefreshControl alloc] init];
+    self.refresh.tintColor = [UIColor grayColor];
+    self.refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing..."];
+    [self.refresh addTarget:self action:@selector(showTweets) forControlEvents:UIControlEventValueChanged];
+    
+    self.tableViewController.refreshControl = self.refresh;
 }
 
 -(void)setTwitterClient:(LKTwitterClient *)twitterClient{
@@ -43,8 +61,12 @@
     [self.tweetContent resignFirstResponder];
 }
 
--(IBAction)showTweets{
 
+#pragma mark - IBActions
+
+-(void)showTweets{
+    [self.tweets removeAllObjects];
+    [self.tweetsTableView reloadData];
     [LKClient getTwitterGlobalFeedWithHandler:^(BOOL succes, NSArray* data, NSError *error) {
         if (succes){
             for (int i=0; i<[data count]; ++i){
@@ -63,31 +85,40 @@
             [self.tweetsTableView reloadData];
         }
     }];
+
+    [self.refresh endRefreshing];
     
 }
 
 -(IBAction)postTweet{
-    
-    if (!self.twitterClient) self.twitterClient = [[LKTwitterClient alloc] init];
     
     [self.twitterClient postTweetWithContent:self.tweetContent.text];
     
     [self.tweetContent resignFirstResponder];
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    if([string isEqualToString:@"\n"]) {
-        [textField resignFirstResponder];
-        return NO;
-    }
+-(IBAction)showUserTweets{
+    LKUserTweetsVC *controller = [[UIStoryboard storyboardWithName:kiPhoneUserTweetsStoryboard bundle:nil] instantiateInitialViewController];
     
-    return YES;
+    UIStoryboardSegue *segue = [UIStoryboardSegue segueWithIdentifier:@"Push user timeline VC" source:self destination:controller performHandler:^(void) {
+        [self.navigationController pushViewController:controller animated:YES];
+    }];
+    
+    [self prepareForSegue:segue sender:self];
+    [segue perform];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"Push user timeline VC"]) {
+        LKUserTweetsVC * controller = segue.destinationViewController;
+        controller.twitterClient = self.twitterClient;
+    }
 }
 
 #pragma mark - UITable View Delegate&DataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog([NSString stringWithFormat:@"Number o tweets: %lu", self.tweets.count]);
+    NSLog(@"Number o tweets: %lu", self.tweets.count);
     return [self.tweets count];
 }
 
@@ -97,8 +128,11 @@
     LKTweet *tweet = [self.tweets objectAtIndex:indexPath.row];
     cell.mainContent.text = tweet.content;
     cell.tweetAuthorLabel.text = tweet.author;
-    NSLog([NSString stringWithFormat:@"Tweet's content: %@", tweet.content]);
-    // Set up cell properites!
+    NSString *stringFromDate = [[LKFunctions dateFormatter] stringFromDate:tweet.createdAt];
+    cell.tweetDateLabel.text = stringFromDate;
+    NSLog(@"Tweet's content: %@", tweet.content);
+    // Set up cell properites.
+    
     
     return cell;
 }
@@ -118,5 +152,7 @@
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Couldn't post tweet" message:error delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }
+
+
 
 @end

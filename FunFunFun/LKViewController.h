@@ -15,6 +15,8 @@
 
 @interface LKViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) UITableViewController* tableViewController;
+@property (nonatomic, strong) UIRefreshControl * refresh;
 
 @property (nonatomic, strong) IBOutlet UITextField *tweetContent;
 @property (nonatomic, strong) IBOutlet UITableView *tweetsTableView;

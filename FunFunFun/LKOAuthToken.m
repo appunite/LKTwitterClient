@@ -105,7 +105,7 @@
 
 -(NSString *) getRequestToken{
     NSMutableDictionary *reqTokenParams = [[NSMutableDictionary alloc] init];
-    [reqTokenParams setValue:CONSUMER_KEY forKey:@"oauth_consumer_key"];
+    [reqTokenParams setValue:kConsumerKey forKey:@"oauth_consumer_key"];
     [reqTokenParams setValue:[LKFunctions randomStringWithLength:32] forKey:@"oauth_nonce" ];
     [reqTokenParams setValue:@"HMAC-SHA1" forKey:@"oauth_signature_method"];
     [reqTokenParams setValue:[LKFunctions sinceUnixEpochString] forKey:@"oauth_timestamp" ];
@@ -168,7 +168,7 @@
 
 
 -(NSArray *) getTokenAndSecretForUser: (NSString *) user withPassword: (NSString *)password{
-    self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:CONSUMER_KEY consumerSecret:CONSUMER_SECRET username:user password:password];
+    self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:kConsumerKey consumerSecret:kConsumerSecret username:user password:password];
     
     __block NSArray *tokenAndSecret;
     
@@ -237,7 +237,7 @@
 -(NSString *)getSigningKey{
     //Percent encoded consumer secret & percent encoded token secret
     NSMutableString *str = [NSMutableString string];
-    [str appendString:[LKFunctions percentEncodeString:CONSUMER_SECRET]];
+    [str appendString:[LKFunctions percentEncodeString:kConsumerSecret]];
     [str appendString:@"&"];
     [str appendString:[LKFunctions percentEncodeString:self.tokenSecret]];
     
@@ -247,7 +247,7 @@
 -(NSString *)getPametersString{
     
     NSMutableArray *keys = [NSMutableArray arrayWithObjects:@"include_entities", @"oauth_consumer_key", @"oauth_nonce", @"oauth_signature_method", @"oauth_timestamp", @"oauth_token", @"oauth_version", nil];
-    NSMutableArray *values = [NSMutableArray arrayWithObjects:@"true", CONSUMER_KEY, self.oauthNonce, OAUTH_SIGNATURE_METHOD, self.timeStamp, self.token, @"1.0", nil];
+    NSMutableArray *values = [NSMutableArray arrayWithObjects:@"true", kConsumerKey, self.oauthNonce, kOauthSignatureMethod, self.timeStamp, self.token, @"1.0", nil];
     
     for (int i = 0; i<[keys count]; ++i){
         keys[i] = [LKFunctions percentEncodeString:[keys objectAtIndex:i]];

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DLr-my-UNJ">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
     <scenes>
@@ -8,9 +9,13 @@
         <scene sceneID="PVb-5d-Zlp">
             <objects>
                 <navigationController definesPresentationContext="YES" id="DLr-my-UNJ" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8G4-r3-Bqb">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="rpc-61-UCN">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="aK8-EA-JSn"/>
                     </connections>
@@ -31,15 +36,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter tweet:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WY-TF-idC">
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter tweet:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WY-TF-idC">
                                 <rect key="frame" x="20" y="74" width="280" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="koA-Yz-4dn"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="m60-cJ-Xz7">
+                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="m60-cJ-Xz7">
                                 <rect key="frame" x="0.0" y="236" width="320" height="332"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="UfL-3O-t86"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell appearanceType="aqua" contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tweet cell" rowHeight="100" id="sK7-ZR-RMo" customClass="LKTweetCellTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -48,26 +59,43 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wBu-js-AmD">
-                                                    <rect key="frame" x="0.0" y="29" width="320" height="72"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="wBu-js-AmD">
+                                                    <rect key="frame" x="10" y="31" width="300" height="58"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                                 </textView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEu-FI-RXv">
-                                                    <rect key="frame" x="7" y="2" width="109" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8s-qx-HUU">
+                                                    <rect key="frame" x="170" y="5" width="150" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="QcK-YU-t3g"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8s-qx-HUU">
-                                                    <rect key="frame" x="155" y="1" width="145" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEu-FI-RXv">
+                                                    <rect key="frame" x="0.0" y="5" width="150" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="0pa-BF-GkA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wBu-js-AmD" firstAttribute="top" secondItem="X8s-qx-HUU" secondAttribute="bottom" constant="5" id="2Ud-9v-Q0r"/>
+                                                <constraint firstAttribute="trailing" secondItem="X8s-qx-HUU" secondAttribute="trailing" id="53M-ct-iUa"/>
+                                                <constraint firstItem="wBu-js-AmD" firstAttribute="leading" secondItem="6OZ-iE-53n" secondAttribute="leading" constant="10" id="8aD-9L-U2d"/>
+                                                <constraint firstItem="X8s-qx-HUU" firstAttribute="top" secondItem="6OZ-iE-53n" secondAttribute="top" constant="5" id="Mqb-4M-2qS"/>
+                                                <constraint firstItem="WEu-FI-RXv" firstAttribute="leading" secondItem="6OZ-iE-53n" secondAttribute="leading" id="aHt-5l-Yzo"/>
+                                                <constraint firstItem="WEu-FI-RXv" firstAttribute="top" secondItem="6OZ-iE-53n" secondAttribute="top" constant="5" id="gX0-VV-B05"/>
+                                                <constraint firstAttribute="bottom" secondItem="wBu-js-AmD" secondAttribute="bottom" constant="10" id="gc3-Uh-REt"/>
+                                                <constraint firstAttribute="trailing" secondItem="wBu-js-AmD" secondAttribute="trailing" constant="10" id="u7a-ZD-MGp"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="mainContent" destination="wBu-js-AmD" id="cPd-ze-EVn"/>
@@ -77,13 +105,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GLp-4G-ptY">
+                            <textField appearanceType="aqua" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GLp-4G-ptY">
                                 <rect key="frame" x="20" y="103" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NAp-EN-vvC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNi-xp-geh">
-                                <rect key="frame" x="110" y="141" width="101" height="30"/>
+                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNi-xp-geh">
+                                <rect key="frame" x="110" y="141" width="100" height="30"/>
                                 <state key="normal" title="Post tweet">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -91,17 +122,35 @@
                                     <action selector="postTweet" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eFJ-lS-KZy"/>
                                 </connections>
                             </button>
-                            <button appearanceType="aqua" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSA-gj-GN5">
-                                <rect key="frame" x="94" y="198" width="132" height="30"/>
-                                <state key="normal" title="Show tweets">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGu-yU-qSA">
+                                <rect key="frame" x="50" y="185" width="220" height="30"/>
+                                <state key="normal" title="Show my tweets">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showTweets" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Blm-jz-97n"/>
+                                    <action selector="showUserTweets" destination="vXZ-lx-hvc" eventType="touchUpInside" id="crj-6n-qJI"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bNi-xp-geh" secondAttribute="trailing" constant="110" id="3JI-AM-SyZ"/>
+                            <constraint firstItem="0WY-TF-idC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="ASw-qq-O7g"/>
+                            <constraint firstItem="m60-cJ-Xz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Ehv-bM-2bM"/>
+                            <constraint firstItem="bNi-xp-geh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="110" id="RHf-Xp-b21"/>
+                            <constraint firstItem="pGu-yU-qSA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="50" id="Yw2-rz-t2n"/>
+                            <constraint firstItem="GLp-4G-ptY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="ZKo-9t-c2K"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="m60-cJ-Xz7" secondAttribute="bottom" id="cE4-NI-rUr"/>
+                            <constraint firstAttribute="trailing" secondItem="m60-cJ-Xz7" secondAttribute="trailing" id="dDp-Ms-O3p"/>
+                            <constraint firstAttribute="trailing" secondItem="pGu-yU-qSA" secondAttribute="trailing" constant="50" id="f03-1q-8ww"/>
+                            <constraint firstItem="m60-cJ-Xz7" firstAttribute="top" secondItem="pGu-yU-qSA" secondAttribute="bottom" constant="21" id="j2x-YI-mIM"/>
+                            <constraint firstItem="bNi-xp-geh" firstAttribute="top" secondItem="GLp-4G-ptY" secondAttribute="bottom" constant="8" id="mlC-3b-ioO"/>
+                            <constraint firstItem="0WY-TF-idC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="tSD-fq-0oN"/>
+                            <constraint firstAttribute="trailing" secondItem="GLp-4G-ptY" secondAttribute="trailing" constant="20" id="veO-Kh-Xye"/>
+                            <constraint firstItem="pGu-yU-qSA" firstAttribute="top" secondItem="bNi-xp-geh" secondAttribute="bottom" constant="14" id="wO0-DY-SAu"/>
+                            <constraint firstAttribute="trailing" secondItem="0WY-TF-idC" secondAttribute="trailing" constant="20" id="xsE-Xj-EYa"/>
+                            <constraint firstItem="GLp-4G-ptY" firstAttribute="top" secondItem="0WY-TF-idC" secondAttribute="bottom" constant="8" id="xxe-dz-WpP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Twitter" id="HJG-vg-LeJ"/>
                     <connections>
@@ -112,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-93" y="-30"/>
+            <point key="canvasLocation" x="-93" y="-37"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
